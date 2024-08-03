@@ -22,7 +22,7 @@ const Product = () => {
         setUserRole(role);
 
         const response = await axios.get(
-          "https://leveledgetask-backend.vercel.app/api/v1/products",
+          "http://localhost:4000/api/v1/products",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ const Product = () => {
         toast.error("Failed to fetch products: " + error.message);
         if (error.response?.status === 401) {
           Cookies.remove("token");
-          navigate("/login");
+          navigate("/");
         }
       } finally {
         setLoading(false);
