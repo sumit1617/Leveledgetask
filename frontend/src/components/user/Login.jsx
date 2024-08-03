@@ -34,7 +34,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/login",
+        "https://leveledgetask-backend.vercel.app/api/v1/login",
         loginData
       );
       if (response.status === 200) {
@@ -56,7 +56,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/register",
+        "https://leveledgetask-backend.vercel.app/api/v1/register",
         signupData
       );
       if (response.status === 201) {

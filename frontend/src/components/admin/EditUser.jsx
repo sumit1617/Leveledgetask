@@ -21,7 +21,7 @@ const EditUser = () => {
         const token = Cookies.get("token");
 
         const response = await axios.get(
-          `http://localhost:4000/api/v1/admin/user/${id}`,
+          `https://leveledgetask-backend.vercel.app/api/v1/admin/user/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const EditUser = () => {
       const token = Cookies.get("token");
 
       const response = await axios.put(
-        `http://localhost:4000/api/v1/admin/user/${id}`,
+        `https://leveledgetask-backend.vercel.app/api/v1/admin/user/${id}`,
         user,
         {
           headers: {

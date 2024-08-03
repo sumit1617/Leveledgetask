@@ -22,7 +22,7 @@ const Product = () => {
         setUserRole(role);
 
         const response = await axios.get(
-          "http://localhost:4000/api/v1/products",
+          "https://leveledgetask-backend.vercel.app/api/v1/products",
           {
             headers: {
               Authorization: `Bearer ${token}`,

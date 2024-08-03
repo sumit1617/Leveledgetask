@@ -33,7 +33,7 @@ const Users = () => {
         console.log("Role in frontend:", role); // Log the role to ensure it is being retrieved
 
         const response = await axios.get(
-          "http://localhost:4000/api/v1/admin/users",
+          "https://leveledgetask-backend.vercel.app/api/v1/admin/users",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -66,12 +66,15 @@ const Users = () => {
   const handleDelete = async (id) => {
     try {
       const token = Cookies.get("token");
-      await axios.delete(`http://localhost:4000/api/v1/admin/user/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      await axios.delete(
+        `http://leveledgetask-backend.vercel.app/api/v1/admin/user/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       setUsers(users.filter((user) => user._id !== id));
       toast.success("User removed successfully!");
     } catch (error) {

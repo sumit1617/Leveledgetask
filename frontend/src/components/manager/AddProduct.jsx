@@ -29,7 +29,7 @@ const AddProduct = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/manager/product/new",
+        "https://leveledgetask-backend.vercel.app/api/v1/manager/product/new",
         product,
         {
           headers: {

@@ -22,7 +22,7 @@ const EditProduct = () => {
       try {
         const token = Cookies.get("token");
         const response = await axios.get(
-          `http://localhost:4000/api/v1/product/${id}`,
+          `https://leveledgetask-backend.vercel.app/api/v1/product/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ const EditProduct = () => {
 
       // Make the API request to update the product
       const response = await axios.put(
-        `http://localhost:4000/api/v1/manager/product/${id}`,
+        `https://leveledgetask-backend.vercel.app/api/v1/manager/product/${id}`,
         productData,
         {
           headers: {
