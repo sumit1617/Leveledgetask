@@ -1,0 +1,16 @@
+.product-page {
+  text-align: center;
+  padding: 20px;
+  background-color: wheat;
+  min-height: 100vh;
+}
+
+.data-grid-container {
+  display: inline-block;
+  width: auto;
+  /* max-width: 60%; */
+  margin: 0 auto;
+  background-color: #028481;
+  padding: 10px;
+  border-radius: 8px;
+}
