@@ -50,14 +50,21 @@ const Users = () => {
         }
       } catch (error) {
         console.error("Error response:", error.response || error.message); // More detailed error logging
-        toast.error("Failed to fetch users: " + error.message);
+        if (error.response && error.response.status === 401) {
+          toast.error("Unauthorized access. Please log in again.");
+          Cookies.remove("token");
+          Cookies.remove("role");
+          navigate("/");
+        } else {
+          toast.error("Failed to fetch users: " + error.message);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchUsers();
-  }, []);
+  }, [navigate]);
 
   const handleEdit = (id) => {
     navigate(`/admin/user/${id}`);
@@ -67,7 +74,7 @@ const Users = () => {
     try {
       const token = Cookies.get("token");
       await axios.delete(
-        `http://leveledgetask-backend.vercel.app/api/v1/admin/user/${id}`,
+        `https://leveledgetask-backend.vercel.app/api/v1/admin/user/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
