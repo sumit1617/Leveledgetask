@@ -50,21 +50,14 @@ const Users = () => {
         }
       } catch (error) {
         console.error("Error response:", error.response || error.message); // More detailed error logging
-        if (error.response && error.response.status === 401) {
-          toast.error("Unauthorized access. Please log in again.");
-          Cookies.remove("token");
-          Cookies.remove("role");
-          navigate("/");
-        } else {
-          toast.error("Failed to fetch users: " + error.message);
-        }
+        toast.error("Failed to fetch users: " + error.message);
       } finally {
         setLoading(false);
       }
     };
 
     fetchUsers();
-  }, [navigate]);
+  }, []);
 
   const handleEdit = (id) => {
     navigate(`/admin/user/${id}`);
