@@ -9,6 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import "./Users.css";
+import { BACKEND_URL } from "../../config/config";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -32,15 +33,12 @@ const Users = () => {
         console.log("Token in frontend:", token); // Log the token to ensure it is being retrieved
         console.log("Role in frontend:", role); // Log the role to ensure it is being retrieved
 
-        const response = await axios.get(
-          "http://localhost:4000/api/v1/admin/users",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true, // Ensure cookies are included
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/admin/users`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true, // Ensure cookies are included
+        });
 
         console.log("Response data:", response.data); // Log the entire response for debugging
         if (response.data.success && Array.isArray(response.data.users)) {
@@ -66,11 +64,11 @@ const Users = () => {
   const handleDelete = async (id) => {
     try {
       const token = Cookies.get("token");
-      await axios.delete(`http://localhost:4000/api/v1/admin/user/${id}`, {
+      await axios.delete(`${BACKEND_URL}/admin/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        withCredentials: true,
+        withCredentials: true, // Ensure cookies are included
       });
       setUsers(users.filter((user) => user._id !== id));
       toast.success("User removed successfully!");

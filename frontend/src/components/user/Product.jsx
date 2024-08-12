@@ -7,6 +7,7 @@ import { Edit } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Product.css";
+import { BACKEND_URL } from "../../config/config";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -21,14 +22,11 @@ const Product = () => {
         const role = Cookies.get("role"); // Get the role from cookies
         setUserRole(role);
 
-        const response = await axios.get(
-          "http://localhost:4000/api/v1/products",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/products`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         console.log(response.data); // Log the entire response for debugging
         if (response.data.success && Array.isArray(response.data.product)) {
           setProducts(response.data.product);

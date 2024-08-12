@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 import "./AddProduct.css"; // Import the CSS file
+import { BACKEND_URL } from "../../config/config";
 
 const AddProduct = () => {
   const [product, setProduct] = useState({
@@ -29,7 +30,7 @@ const AddProduct = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/manager/product/new",
+        `${BACKEND_URL}/manager/product/new`,
         product,
         {
           headers: {

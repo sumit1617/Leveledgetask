@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./EditUser.css"; // Import the CSS file
+import { BACKEND_URL } from "../../config/config";
 
 const EditUser = () => {
   const { id } = useParams();
@@ -20,15 +21,12 @@ const EditUser = () => {
       try {
         const token = Cookies.get("token");
 
-        const response = await axios.get(
-          `http://localhost:4000/api/v1/admin/user/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/admin/user/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        });
 
         if (response.data.success) {
           setUser(response.data.user);
@@ -58,7 +56,7 @@ const EditUser = () => {
       const token = Cookies.get("token");
 
       const response = await axios.put(
-        `http://localhost:4000/api/v1/admin/user/${id}`,
+        `${BACKEND_URL}/admin/user/${id}`,
         user,
         {
           headers: {

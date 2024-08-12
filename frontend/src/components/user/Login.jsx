@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
+import { BACKEND_URL } from "../../config/config";
 
 const Login = () => {
   const [active, setActive] = useState(false);
@@ -33,10 +34,7 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/v1/login",
-        loginData
-      );
+      const response = await axios.post(`${BACKEND_URL}/login`, loginData);
       if (response.status === 200) {
         Cookies.set("token", response.data.token, { expires: 7 });
         Cookies.set("role", response.data.role, { expires: 7 });
@@ -55,10 +53,7 @@ const Login = () => {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/v1/register",
-        signupData
-      );
+      const response = await axios.post(`${BACKEND_URL}/register`, signupData);
       if (response.status === 201) {
         Cookies.set("token", response.data.token, { expires: 7 });
         Cookies.set("role", response.data.role, { expires: 7 });

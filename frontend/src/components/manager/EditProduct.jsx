@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./EditProduct.css";
+import { BACKEND_URL } from "../../config/config";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -21,15 +22,12 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const token = Cookies.get("token");
-        const response = await axios.get(
-          `http://localhost:4000/api/v1/product/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/product/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        });
         setProductData(response.data.product);
       } catch (error) {
         if (error.response?.status === 404) {
@@ -61,7 +59,7 @@ const EditProduct = () => {
 
       // Make the API request to update the product
       const response = await axios.put(
-        `http://localhost:4000/api/v1/manager/product/${id}`,
+        `${BACKEND_URL}/manager/product/${id}`,
         productData,
         {
           headers: {
