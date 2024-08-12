@@ -48,3 +48,37 @@
 .add-product-page form button:hover {
   background-color: #45a049;
 }
+
+@media (max-width: 768px) {
+  .add-product-page {
+    padding: 15px;
+  }
+
+  .add-product-page h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .add-product-page form {
+    padding: 15px;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .add-product-page form label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .add-product-page form input,
+  .add-product-page form textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .add-product-page form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

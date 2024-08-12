@@ -16,6 +16,7 @@ body {
   justify-content: center;
   color: #fff;
   font-size: 16px;
+  padding: 20px; /* Add padding for mobile */
 }
 
 .login-wrapper {
@@ -58,4 +59,52 @@ ul li {
 a {
   color: white;
   text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .login-wrapper {
+    width: 100%; /* Full width on mobile */
+    min-width: unset;
+    padding: 10px; /* Reduce padding */
+  }
+
+  ul {
+    width: 100%; /* Full width on mobile */
+    margin: 20px auto;
+  }
+
+  ul li {
+    display: block; /* Stack list items on top of each other */
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    font-size: 12px; /* Further adjust font size for very small screens */
+  }
+
+  .login-wrapper {
+    padding: 10px;
+  }
+
+  .login-input input,
+  .login-input button {
+    height: 40px; /* Smaller input and button height */
+    padding: 10px;
+  }
+
+  ul {
+    margin: 20px auto;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
 }

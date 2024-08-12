@@ -53,3 +53,29 @@
 .sidebar .MuiListItemIcon-root {
   min-width: 40px;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .profile-section {
+    padding: 15px;
+  }
+
+  .profile-section .MuiTypography-body1 {
+    font-size: 0.9rem;
+  }
+
+  .sidebar a,
+  .sidebar button {
+    padding: 8px;
+    margin: 8px 0;
+    font-size: 0.9rem;
+  }
+
+  .sidebar .MuiListItemIcon-root {
+    min-width: 30px;
+  }
+}

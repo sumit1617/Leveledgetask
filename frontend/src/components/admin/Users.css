@@ -13,3 +13,15 @@
   padding: 10px;
   border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+  .user-list-page {
+    padding: 15px;
+  }
+
+  .data-grid-container {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}

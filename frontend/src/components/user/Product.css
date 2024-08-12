@@ -14,3 +14,15 @@
   padding: 10px;
   border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+  .product-page {
+    padding: 15px;
+  }
+
+  .data-grid-container {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}
