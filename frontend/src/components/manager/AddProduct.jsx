@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 import "./AddProduct.css"; // Import the CSS file
 import { BACKEND_URL } from "../../config/config";
+import Cookies from "js-cookie"; // Make sure this is imported
 
 const AddProduct = () => {
   const [product, setProduct] = useState({
@@ -29,12 +30,15 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
+      const token = Cookies.get("token"); // Retrieve token from cookies
+
       const response = await axios.post(
         `${BACKEND_URL}/manager/product/new`,
         product,
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Include token in headers
           },
           withCredentials: true,
         }
