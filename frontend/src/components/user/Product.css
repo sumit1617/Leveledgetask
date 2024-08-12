@@ -15,7 +15,7 @@
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .product-page {
     padding: 15px;
   }

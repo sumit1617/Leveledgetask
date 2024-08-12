@@ -171,7 +171,7 @@ section .container.active .signinBx .imgBx {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   section {
     padding: 10px;
   }

@@ -52,7 +52,7 @@
   background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .edit-user-page {
     padding: 15px;
   }

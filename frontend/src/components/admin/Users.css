@@ -14,7 +14,7 @@
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .user-list-page {
     padding: 15px;
   }
