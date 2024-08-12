@@ -14,7 +14,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://leveledgetask-frontend.vercel.app",
+    ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })

@@ -5,8 +5,11 @@ const cors = require("cors");
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    origin: [
+      "http://localhost:5173",
+      "https://leveledgetask-frontend.vercel.app",
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );
